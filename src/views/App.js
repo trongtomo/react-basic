@@ -1,6 +1,11 @@
 import logo from "./logo.svg";
 import "./App.scss";
-
+import MyComponents from "./Example/MyComponents";
+/**
+ * const App = () =>{}
+ *
+ * 2 components: class components va function components (function, arrow)
+ */
 function App() {
   return (
     <div className="App">
@@ -15,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <MyComponents></MyComponents>
       </header>
     </div>
   );
