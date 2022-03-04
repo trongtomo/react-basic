@@ -1,44 +1,51 @@
 import React, { Component } from "react";
-
+import ChildComponents from "./ChildComponents";
 class MyComponents extends Component {
-  //state la object Key:value
-  state = {
-    name: "",
-    age: "24",
-  };
-  handleOnChangeName = (event) => {
-    //tu dong merge,chi can set thay doi
+  handleChangeFirstName = (event) => {
     this.setState({
-      name: event.target.value,
+      firstName: event.target.value,
     });
   };
-  handleClickButton = () => {
-    alert("click me");
+  handleChangeLastName = (event) => {
+    this.setState({
+      lastName: event.target.value,
+    });
   };
-  //re render
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("check data:", this.state);
+  };
+  state = {
+    firstName: "",
+    lastName: "",
+  };
   render() {
     return (
       //this. la chi vao component hien tai
       <section>
-        <div>
-          hello my name is {this.state.name} and my age is {this.state.age}
-        </div>
-        <div>
+        <form>
+          <label htmlFor="fname">First name: </label>
+          <br />
           <input
-            value={this.state.name}
             type="text"
-            onChange={(event) => this.handleOnChangeName(event)}
+            value={this.state.firstName}
+            onChange={(event) => this.handleChangeFirstName(event)}
           />
-        </div>
-        <div>
-          <button
-            onClick={() => {
-              this.handleClickButton();
-            }}
-          >
-            Click me
-          </button>
-        </div>
+          <br />
+          <label htmlFor="lname">Last name: </label>
+          <br />
+          <input
+            type="text"
+            value={this.state.lastName}
+            onChange={(event) => this.handleChangeLastName(event)}
+          />
+          <br />
+          <input type="submit" onClick={(event) => this.handleSubmit(event)} />
+          <br />
+        </form>
+        <ChildComponents name={"Child one"} />
+        <ChildComponents name={"Child two"} />
+        <ChildComponents name={"Child three"} />
       </section>
     );
   }
