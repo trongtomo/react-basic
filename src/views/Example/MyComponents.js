@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import ChildComponents from "./ChildComponents";
-class MyComponents extends Component {
+class MyComponents extends React.Component {
   handleChangeFirstName = (event) => {
     this.setState({
       firstName: event.target.value,
@@ -15,11 +15,18 @@ class MyComponents extends Component {
     event.preventDefault();
     console.log("check data:", this.state);
   };
+  //key:value
   state = {
     firstName: "",
     lastName: "",
+    arrCountry: [
+      { id: "thu nhat", title: "vietnam", tien: "5000vnd" },
+      { id: "thu hai", title: "trung quoc", tien: "5000ndt" },
+      { id: "thu ba", title: "my", tien: "5usd" },
+    ],
   };
   render() {
+    console.log(">>>> Call render :", this.state);
     return (
       //this. la chi vao component hien tai
       <section>
@@ -43,7 +50,12 @@ class MyComponents extends Component {
           <input type="submit" onClick={(event) => this.handleSubmit(event)} />
           <br />
         </form>
-        <ChildComponents name={"Trong"} age={"25"} />
+        <ChildComponents
+          name={this.state.firstName}
+          age={"25"}
+          address={"69"}
+          arrCountry={this.state.arrCountry}
+        />
       </section>
     );
   }
