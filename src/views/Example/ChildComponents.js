@@ -14,7 +14,6 @@ class ChildComponents extends React.Component {
     let { showCountry } = this.state;
     let check =
       showCountry == true ? "showCountry =true" : "showCountry =false";
-    console.log("check conditional", check);
     return (
       <section>
         {showCountry === false ? (

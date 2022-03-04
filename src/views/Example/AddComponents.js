@@ -3,11 +3,24 @@ import React from "react";
 class AddComponents extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
+    if (!this.state.title || !this.state.tien) {
+      alert("Fill required form");
+      return;
+    }
     console.log("check data:", this.state);
+    this.props.addNewCountry({
+      id: Math.floor(Math.random() * 1001),
+      title: this.state.title,
+      tien: this.state.tien,
+    });
+    this.setState({
+      title: "",
+      tien: "",
+    });
   };
   handleChangeTitle = (event) => {
     this.setState({
-      titleCountry: event.target.value,
+      title: event.target.value,
     });
   };
   handleChangeTien = (event) => {
@@ -16,7 +29,7 @@ class AddComponents extends React.Component {
     });
   };
   state = {
-    titleCountry: "",
+    title: "",
     tien: "",
   };
   render() {
@@ -26,7 +39,7 @@ class AddComponents extends React.Component {
         <br />
         <input
           type="text"
-          value={this.state.titleCountry}
+          value={this.state.title}
           onChange={(event) => this.handleChangeTitle(event)}
         />
         <br />
