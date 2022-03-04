@@ -9,6 +9,10 @@ class ChildComponents extends React.Component {
       showCountry: !this.state.showCountry,
     });
   };
+  handleOnClickDelete = (country) => {
+    console.log("handle delete", country);
+    this.props.deleteACountry(country);
+  };
   render() {
     let { arrCountry } = this.props;
     let { showCountry } = this.state;
@@ -26,7 +30,11 @@ class ChildComponents extends React.Component {
               {arrCountry.map((item, index) => {
                 return (
                   <div key={item.id}>
-                    {item.title} - {item.tien}$
+                    {item.title} - {item.tien}$ <></>{" "}
+                    <span onClick={() => this.handleOnClickDelete(item)}>
+                      {" "}
+                      x{" "}
+                    </span>
                   </div>
                 );
               })}
