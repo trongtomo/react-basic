@@ -20,10 +20,15 @@ class ChildComponents extends Component {
     lastName: "",
   };
   render() {
+    // let name = this.props.name
+    // let age = this.props.age
+    let { name, age } = this.props;
     return (
       //this. la chi vao component hien tai
       <section>
-        <div>ChildComponents : {this.props.name}</div>
+        <div>
+          ChildComponents : {name}-{age}
+        </div>
       </section>
     );
   }

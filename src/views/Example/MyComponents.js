@@ -43,9 +43,7 @@ class MyComponents extends Component {
           <input type="submit" onClick={(event) => this.handleSubmit(event)} />
           <br />
         </form>
-        <ChildComponents name={"Child one"} />
-        <ChildComponents name={"Child two"} />
-        <ChildComponents name={"Child three"} />
+        <ChildComponents name={"Trong"} age={"25"} />
       </section>
     );
   }
