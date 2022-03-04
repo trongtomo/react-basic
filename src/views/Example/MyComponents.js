@@ -20,9 +20,9 @@ class MyComponents extends React.Component {
     firstName: "",
     lastName: "",
     arrCountry: [
-      { id: "thu nhat", title: "vietnam", tien: "5000vnd" },
-      { id: "thu hai", title: "trung quoc", tien: "5000ndt" },
-      { id: "thu ba", title: "my", tien: "5usd" },
+      { id: "thu nhat", title: "vietnam", tien: "5000" },
+      { id: "thu hai", title: "trung quoc", tien: "50" },
+      { id: "thu ba", title: "my", tien: "5" },
     ],
   };
   render() {

@@ -1,48 +1,63 @@
 import React from "react";
 
-// class ChildComponents extends React.Component {
-//   render() {
-//     // let name = this.props.name
-//     // let age = this.props.age
-//     let { name, age, address, arrCountry } = this.props;
-//     let a = "";
-//     return (
-//       //this. la chi vao component hien tai
-//       <section>
-//         {/* <div className="job-lists">
-//           Child Components name :{name}-{age}-{address}
-//         </div> */}
-//         <div className="job-lists">
-//           {
-//             (a = arrCountry.map((item, index) => {
-//               return (
-//                 <div key={item.id}>
-//                   {item.title} - {item.tien}
-//                 </div>
-//               );
-//             }))
-//           }
-//           {console.log("check map array:", a)}
-//         </div>
-//       </section>
-//     );
-//   }
-// }
-const ChildComponents = (props) => {
-  let { arrCountry } = props;
-  return (
-    //this. la chi vao component hien tai
-    <section>
-      <div className="job-lists">
-        {arrCountry.map((item, index) => {
-          return (
-            <div key={item.id}>
-              {item.title} - {item.tien}
+class ChildComponents extends React.Component {
+  state = {
+    showCountry: false,
+  };
+  handleShowHide = () => {
+    this.setState({
+      showCountry: !this.state.showCountry,
+    });
+  };
+  render() {
+    let { arrCountry } = this.props;
+    let { showCountry } = this.state;
+    let check =
+      showCountry == true ? "showCountry =true" : "showCountry =false";
+    console.log("check conditional", check);
+    return (
+      <section>
+        {showCountry === false ? (
+          <div>
+            <button onClick={() => this.handleShowHide()}>Show</button>
+          </div>
+        ) : (
+          <>
+            <div className="job-lists">
+              {arrCountry.map((item, index) => {
+                return (
+                  <div key={item.id}>
+                    {item.title} - {item.tien}$
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-};
+            <div>
+              <button onClick={() => this.handleShowHide()}>Hide</button>
+            </div>
+          </>
+        )}
+      </section>
+    );
+  }
+}
+// const ChildComponents = (props) => {
+//   let { arrCountry } = props;
+//   return (
+//     //this. la chi vao component hien tai
+//     <section>
+//       <div className="job-lists">
+//         {arrCountry.map((item, index) => {
+//           if (+item.tien >= 500) {
+//             return (
+//               <div key={item.id}>
+//                 {item.title} - {item.tien}$
+//               </div>
+//             );
+//           }
+//         })}
+//       </div>
+//     </section>
+//   );
+// };
 export default ChildComponents;
