@@ -26,6 +26,12 @@ class MyComponents extends React.Component {
       { id: "thu ba", title: "my", tien: "5" },
     ],
   };
+  componentDidUpdate(prevProps, prevState) {
+    console.log("component did update", prevState, "curent state", this.state);
+  }
+  componentDidMount() {
+    console.log("component did mount!");
+  }
   render() {
     return (
       //this. la chi vao component hien tai

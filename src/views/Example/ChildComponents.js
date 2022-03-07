@@ -1,4 +1,5 @@
 import React from "react";
+import "./ChildComponents.module.scss";
 
 class ChildComponents extends React.Component {
   state = {
@@ -16,8 +17,8 @@ class ChildComponents extends React.Component {
   render() {
     let { arrCountry } = this.props;
     let { showCountry } = this.state;
-    let check =
-      showCountry == true ? "showCountry =true" : "showCountry =false";
+    // let check =
+    //   showCountry === true ? "showCountry =true" : "showCountry =false";
     return (
       <section>
         {showCountry === false ? (
