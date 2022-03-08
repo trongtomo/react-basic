@@ -17,9 +17,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Navigaton />
-        <img src={logo} className="App-logo" alt="logo" />
         <BrowserRouter>
+          <Navigaton />
+          <img src={logo} className="App-logo" alt="logo" />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
