@@ -4,7 +4,7 @@ import ChildComponents from "./ChildComponents";
 class MyComponents extends React.Component {
   deleteACountry = (country) => {
     let currentCountry = this.state.arrCountry;
-    currentCountry = currentCountry.filter((item) => item.id != country.id);
+    currentCountry = currentCountry.filter((item) => item.id !== country.id);
     this.setState({
       arrCountry: currentCountry,
     });
@@ -26,12 +26,12 @@ class MyComponents extends React.Component {
       { id: "thu ba", title: "my", tien: "5" },
     ],
   };
-  componentDidUpdate(prevProps, prevState) {
-    console.log("component did update", prevState, "curent state", this.state);
-  }
-  componentDidMount() {
-    console.log("component did mount!");
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("component did update", prevState, "curent state", this.state);
+  // }
+  // componentDidMount() {
+  //   console.log("component did mount!");
+  // }
   render() {
     return (
       //this. la chi vao component hien tai
