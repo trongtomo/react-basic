@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navigation.scss";
-import { Outlet, Link, NavLink } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 class Navigaton extends React.Component {
   render() {
     return (

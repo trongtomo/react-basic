@@ -2,11 +2,11 @@ import logo from "./logo.svg";
 import "./App.scss";
 import MyComponents from "./Example/MyComponents";
 import ListTodo from "./Todos/ListTodo";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navigaton from "./Navigation/Navigation";
 import Home from "./Example/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 /**
  * const App = () =>{}
@@ -17,15 +17,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <BrowserRouter>
-          <Navigaton />
-          <img src={logo} className="App-logo" alt="logo" />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/todo" element={<ListTodo />} />
-            <Route path="/mycomponent" element={<MyComponents />} />
-          </Routes>
-        </BrowserRouter>
+        <Navigaton />
+        <img src={logo} className="App-logo" alt="logo" />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/todo" element={<ListTodo />} />
+          <Route path="/mycomponent" element={<MyComponents />} />
+        </Routes>
       </header>
       <ToastContainer
         position="top-right"
