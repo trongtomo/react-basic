@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import Color from "../HOC/Color";
 class Home extends React.Component {
   componentDidMount() {
     setTimeout(() => {
@@ -17,4 +17,5 @@ function WithNavigate(props) {
   let navigate = useNavigate();
   return <Home {...props} navigate={navigate} />;
 }
-export default WithNavigate;
+//export default WithNavigate;
+export default Color(WithNavigate);
