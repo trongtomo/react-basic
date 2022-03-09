@@ -8,6 +8,7 @@ import Navigaton from "./Navigation/Navigation";
 import Home from "./Example/Home";
 import { Routes, Route } from "react-router-dom";
 import ListUser from "./Users/ListUser";
+import DetailUser from "./Users/DetailUser";
 /**
  * const App = () =>{}
  *
@@ -23,7 +24,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/todo" element={<ListTodo />} />
           <Route path="/mycomponent" element={<MyComponents />} />
-          <Route path="/user" element={<ListUser />} />
+          <Route path="/user" exact element={<ListUser />} />
+          <Route path="/user/:id" element={<DetailUser />} />
         </Routes>
       </header>
       <ToastContainer

@@ -1,14 +1,16 @@
 import React from "react";
 import axios from "axios";
 import "./ListUser.scss";
+import { useNavigate } from "react-router-dom";
 class ListUser extends React.Component {
+  handleViewDetailUser = (user) => {
+    this.props.navigate(`/user/${user.id}`);
+    // console.log("check user", user);
+  };
   state = {
     listUsers: [],
   };
   async componentDidMount() {
-    // axios.get("https://reqres.in/api/users?page=2").then((res) => {
-    //   console.log("check res", res);
-    // });
     let res = await axios.get("https://reqres.in/api/users?page=2");
     this.setState({
       listUsers: res && res.data && res.data.data ? res.data.data : [],
@@ -24,7 +26,11 @@ class ListUser extends React.Component {
             listUsers.length > 0 &&
             listUsers.map((item, index) => {
               return (
-                <div className="child" key={item.id}>
+                <div
+                  className="child"
+                  key={item.id}
+                  onClick={() => this.handleViewDetailUser(item)}
+                >
                   {index + 1} - {item.first_name} {item.last_name}
                 </div>
               );
@@ -34,4 +40,8 @@ class ListUser extends React.Component {
     );
   }
 }
-export default ListUser;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <ListUser {...props} navigate={navigate} />;
+}
+export default WithNavigate;
