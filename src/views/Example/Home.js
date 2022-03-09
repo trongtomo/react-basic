@@ -1,16 +1,24 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Color from "../HOC/Color";
+import allu from "../../assets/images/allu.png";
 class Home extends React.Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.props.navigate("/todo");
-      console.log("Check time out");
-    }, 3000);
+    // setTimeout(() => {
+    //   this.props.navigate("/todo");
+    //   console.log("Check time out");
+    // }, 3000);
   }
 
   render() {
-    return <div>Welcome home Trong</div>;
+    return (
+      <>
+        <div>Welcome home Trong</div>
+        <div>
+          <img src={allu} />
+        </div>
+      </>
+    );
   }
 }
 function WithNavigate(props) {
