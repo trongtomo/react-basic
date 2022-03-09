@@ -28,6 +28,12 @@ class Navigaton extends React.Component {
         >
           My Component
         </NavLink>
+        <NavLink
+          to="/user"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          User
+        </NavLink>
         <Outlet />
       </div>
     );

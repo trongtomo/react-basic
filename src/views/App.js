@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navigaton from "./Navigation/Navigation";
 import Home from "./Example/Home";
 import { Routes, Route } from "react-router-dom";
-
+import ListUser from "./Users/ListUser";
 /**
  * const App = () =>{}
  *
@@ -23,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/todo" element={<ListTodo />} />
           <Route path="/mycomponent" element={<MyComponents />} />
+          <Route path="/user" element={<ListUser />} />
         </Routes>
       </header>
       <ToastContainer
