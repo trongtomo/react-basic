@@ -4,10 +4,22 @@ import App from "./views/App.js";
 import reportWebVitals from "./reportWebVitals";
 import "./styles/global.scss";
 import { BrowserRouter } from "react-router-dom";
+
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "./store/reducers/rootReducer";
+const reduxStore = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : (noop) => noop
+);
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={reduxStore}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

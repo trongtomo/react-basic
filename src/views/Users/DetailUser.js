@@ -34,9 +34,12 @@ class DetailUser extends React.Component {
               <img src={user.avatar} />
             </div>
             <div>
-              <button type="button" onClick={() => this.handleBackButton()}>
+              {/* <button
+                type="button"
+                onClick={() => this.handleBackButton()}
+              >
                 Back
-              </button>
+              </button> */}
             </div>
           </>
         )}
